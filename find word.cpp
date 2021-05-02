@@ -2,7 +2,7 @@
 #include <cstring>
 using namespace std;
 
-char words[15][15]   =	{ {'t','g','b','w','w','i','n','t','e','r','w','s','e','s','n'},
+char words[15][16]   =	{ {'t','g','b','w','w','i','n','t','e','r','w','s','e','s','n'},
 			{'a','a','u','n','t','t','m','m','h','f','o','o','d','n','b'},
 			{'j','l','w','c','q','l','d','z','m','p','m','v','d','m','r'},
 			{'a','s','a','g','m','q','u','w','v','v','b','s','o','h','i'},
@@ -25,9 +25,9 @@ int searchwords (char *(input))
 	ketemu = 0;
 	p_kt = strlen (input);
 	
-	for (int i = 0; i < 15; i++)
+	for (int i = 0; i < 16; i++)
 	{
-		for (int j = 0; j < 15; j++)
+		for (int j = 0; j < 16; j++)
 		{
 			if (input[0] == words[i][j])
 			{
@@ -136,7 +136,7 @@ int main (){
 	int n;
 	
 	cin >> n;
-	char input[n][15];
+	char input[n][16];
 	
 	//Input n Kata
 	for (int i = 0; i < n; i++){
