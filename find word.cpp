@@ -118,7 +118,6 @@ int searchwords (char *(input))
 					ketemu += 0;
 				}
 				cek = 0;								
-		
 			}
 		}
 	}
