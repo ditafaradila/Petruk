@@ -57,10 +57,10 @@ int searchwords (char *(input))
 	
 	if (ketemu > 0)
 	{
-		cout << "ADA" << endl;
+		cout << "Ada" << endl;
  	}
  	else
  	{
- 		cout << "TIDAK ADA" << endl;
+ 		cout << "Tidak Ada" << endl;
 	}
 }
