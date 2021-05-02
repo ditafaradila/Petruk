@@ -117,7 +117,95 @@ int searchwords (char *(input))
 				{
 					ketemu += 0;
 				}
-				cek = 0;								
+				cek = 0;	
+				
+				//DIAGONAL KIRI ATAS 
+				for (int k = 0; k < p_kt; k++)
+				{
+					if (input[k] == words[i-k][j-k])
+					{
+						cek = k;
+					}
+					else
+					{ 
+						break;
+					}
+				}
+				if (cek == p_kt- 1)
+				{
+					ketemu += 1;
+				}
+				else
+				{
+					ketemu += 0;
+				}
+				cek = 0;
+			
+				//DIAGONAL KANAN ATAS	
+				for (int k = 0; k < p_kt; k++)
+				{
+					if (input[k] == words[i-k][j+k])
+					{
+						cek = k;
+					}
+					else
+					{ 
+						break;
+					}
+				}
+				if (cek == p_kt - 1)
+				{
+					ketemu += 1;
+				}
+				else
+				{
+					ketemu += 0;
+				}
+				cek = 0;
+				
+				//DIAGONAL KIRI BAWAH
+				for (int k = 0; k < p_kt; k++)
+				{
+					if (input[k] == words[i+k][j-k])
+					{
+						cek = k;
+					}
+					else
+					{ 
+						break;
+					}
+				}
+				if (cek == p_kt - 1)
+				{
+					ketemu += 1;
+				}
+				else
+				{
+					ketemu += 0;
+				}
+				cek = 0;
+				
+				//DIAGONAL KANAN BAWAH
+				for (int k = 0; k < p_kt; k++)
+				{
+					if (input[k] == words[i+k][j+k])
+					{
+						cek = k;
+					}
+					else
+					{ 
+						break;
+					}
+				}
+				if (cek == p_kt - 1)
+				{
+					ketemu += 1;
+				}
+				else
+				{
+					ketemu += 0;
+				}
+				cek = 0;
 			}
 		}
 	}
