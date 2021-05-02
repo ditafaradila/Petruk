@@ -73,7 +73,52 @@ int searchwords (char *(input))
 				{
 					ketemu += 0;
 				}
-				cek = 0;										
+				cek = 0;
+				
+				//VERTIKAL BAWAH
+				for (int k = 0; k < p_kt; k++)
+				{
+					if(input[k] == words[i + k][j])
+					{
+						cek = k;
+					}
+					else
+					{
+						break;
+					}
+				}
+				if(cek == p_kt - 1)
+				{
+					ketemu += 1;
+				}
+				else
+				{
+					ketemu += 0;
+				}
+				cek = 0;
+				
+				//VERTIKAL KE ATAS
+				for (int k = 0; k < p_kt; k++)
+				{
+					if (input[k] == words[i-k][j])
+					{
+						cek = k;
+					}
+					else
+					{
+						break;
+					}
+				}
+				if (cek == p_kt - 1)
+				{
+					ketemu += 1;
+				}
+				else
+				{
+					ketemu += 0;
+				}
+				cek = 0;								
+		
 			}
 		}
 	}
@@ -90,21 +135,9 @@ int searchwords (char *(input))
 
 int main (){
 	int n;
-	cout << "Banyak Kata : ";
+	
 	cin >> n;
-	
-	//output matriks word-nya
-	for(int i=0; i<15; i++){
-		for (int j=0; j<15; j++){
-			cout<<words[i][j]<<" ";
-		}
-		cout<<endl;
-	}
-	cout<<endl;
-	
 	char input[n][15];
-	
-
 	
 	//Input N Kata
 	for (int i=0; i<n; i++){
@@ -113,7 +146,6 @@ int main (){
 	cout << endl;
 		
 	//Output N Kata	
-	cout << "Hasil: " << endl;
 	for (int i=0; i<n; i++){
 		searchwords (*(input+i));
 	}	
