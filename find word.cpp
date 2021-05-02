@@ -138,14 +138,14 @@ int main (){
 	cin >> n;
 	char input[n][15];
 	
-	//Input N Kata
-	for (int i=0; i<n; i++){
+	//Input n Kata
+	for (int i = 0; i < n; i++){
 		cin >> input[i];
 	}
 	cout << endl;
 		
-	//Output N Kata	
-	for (int i=0; i<n; i++){
-		searchwords (*(input+i));
+	//Output n Kata	
+	for (int i = 0; i < n; i++){
+		searchwords (*(input + i));
 	}	
 }
