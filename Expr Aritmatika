@@ -1,13 +1,36 @@
 //Anggota Kelompok:
 //1. Dita Faradila - 2017051002
-//2. Yulia Dwi Putri - 2017051006
+//2. Yulia Dwi Putri - 2017051016
 //3. Aura Husnaini Putri Zaidani - 2017051045
 #include<iostream>
 #include<vector>
 #include<ctype.h>
 using namespace std;
 
-int main()
-{
+int main(){
+    string x; getline(cin,x);
+    vector<char> ekspresi;
+    
+    for(long unsigned int i=0; i<x.length(); i++){
+        if(x[i] == ' ')
+            continue;
+        else if(isdigit(x[i])){ 
+            while(i<x.length() && isdigit(x[i])){
+                ekspresi.push_back(x[i]);
+                i++;
+            }
+            i--;
+        }
+        else if(x[i] == '-'){
+            ekspresi.push_back(x[i]);
+            if(i==0){
+                if(isdigit(x[i+1])){
+                    i++;
+                    while(i<x.length() && isdigit(x[i])){
+                        ekspresi.push_back(x[i]);
+                        i++;
+                    }
+                    i--;
+                }
   return 0;
 }
