@@ -33,5 +33,23 @@ int main()
                     }
                     i--;
                 }
+       else {
+                    ekspresi.push_back('1');
+                    ekspresi.push_back(' ');
+                    ekspresi.push_back('*');
+                }
+            } else {
+                if(!isdigit(x[i-1]) && x[i+1] != ' '){
+                    ekspresi.push_back('1');
+                    ekspresi.push_back(' ');
+                    ekspresi.push_back('*');
+                } 
+            }
+        } else
+            ekspresi.push_back(x[i]);
+        ekspresi.push_back(' ');
+    }
+    for(auto j:ekspresi)
+        cout << j;
   return 0;
 }
