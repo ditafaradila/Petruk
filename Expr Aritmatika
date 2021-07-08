@@ -47,6 +47,7 @@ int main()
             eks.push_back(input[i]);
         eks.push_back(' ');
     }
+    cout<<"Print : ";
     for(auto j:eks)
         cout << j;
   return 0;
