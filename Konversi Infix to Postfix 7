@@ -72,7 +72,6 @@ int main(){
             baru_s+= s[i];    
         }        
     }
-    //cout << "Print : " << konversi(baru_s);
-    cout << konversi(baru_s);
+    cout << "Print : " << konversi(baru_s);
     return 0;
 }
