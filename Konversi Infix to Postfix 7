@@ -21,6 +21,41 @@ int operan(char a){
     return 0;
 }
 
+string konversi(string b){
+    stack <char> data;
+    string postfix = "";
+    
+    for(i=0; i<b.length(); i++){
+        if(isdigit(b[i])){
+            while(i<b.length() && isdigit(b[i])){
+                postfix += b[i];
+                i++;
+            }
+            i--;
+            postfix += " ";
+        }else if(b[i] == '('){
+            data.push(b[i]);
+        }else if(b[i] == ')'){
+            while(!data.empty() && data.top() != '('){
+                postfix += data.top();
+                data.pop();
+                postfix += " ";
+            }
+            data.pop();
+        }else{
+            if(b[i] == '-'){
+                if(i==0){
+                    if(isdigit(b[i+1])){
+                        postfix += b[i];
+                        i++;
+                        while(i<b.length() && isdigit(b[i])){
+                            postfix += b[i];
+                            i++;
+                        }
+                        i--;
+                        postfix += " ";
+                    }
+
 int main(){
     string s;
     getline(cin, s);
