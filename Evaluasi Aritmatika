@@ -1,1 +1,52 @@
+//Anggota Kelompok:
+//1. Dita Faradila - 2017051002
+//2. Yulia Dwi Putri - 2017051016
+//3. Aura Husnaini Putri Zaidani - 2017051045
 
+#include <bits/stdc++.h>
+using namespace std;
+
+long unsigned int i;
+
+bool Simbol(char a){
+    if(a=='*' || a=='/' || a=='+' ||a=='-' || a=='%'){
+        return true; 
+    } else {    
+        return false; 
+    }
+}
+
+int operan(char a){ 
+    if(a=='+' || a=='-'){ 
+        return 1; 
+    }
+    if(a=='*' || a=='/' || a=='%'){ 
+        return 2; 
+    } 
+    return 0;
+}
+
+
+double Oprtr(double satu, double dua, char opr){
+    switch(opr){
+        case '*': return satu * dua;    
+        case '/': return satu / dua; 
+        case '+': return satu + dua; 
+        case '-': return satu - dua;
+        }
+    return 0;
+}
+
+int main(){
+    string input; getline(cin, input);
+    string baru_input="";
+    for(i=0;i<input.length();i++){
+        if(input[i]==' ')
+            continue;
+        else
+            baru_input+=input[i];
+    }
+    hasil(baru_input);
+
+    return 0;
+}
