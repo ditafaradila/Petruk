@@ -58,7 +58,40 @@ string konversi(string b){
                         }
                         i--;
                         postfix += " ";
+                    } else{
+                        postfix += "-1 ";
+                        data.push('*');
                     }
+                }else{
+                    while(!data.empty() && operan(data.top()) >= operan(b[i]) && !Simbol(b[i-1])){
+                        postfix += data.top();
+                        postfix += " ";
+                        data.pop();
+                    }
+                    if((isdigit(b[i+1]) || b[i+1]=='(') && (isdigit(b[i-1]) || b[i-1]==')')){
+                        data.push(b[i]);
+                    }else{
+                        postfix += "-1 ";
+                        data.push('*');
+                    }
+                }
+            }else{
+                while(!data.empty() && operan(data.top()) >= operan(b[i])){
+                    postfix += data.top();
+                    postfix += " ";
+                    data.pop();
+                }
+                data.push(b[i]);
+            }
+        }
+    }
+    while(!data.empty()){
+        postfix += data.top();
+        postfix += " ";
+        data.pop();
+    }
+    return postfix;
+}
 
 int main(){
     string s;
