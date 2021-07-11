@@ -103,7 +103,64 @@ void hasil(string input){
                                 operasi.pop();
                                 operand.push(bil1 %bil2);
                             
-                            } 
+                            }                      else 
+                                {
+                                double bil2 = operand.top(); operand.pop();
+                                double bil1  = operand.top(); operand.pop();
+                                char opr = operasi.top(); operasi.pop();
+                                operand.push(Oprtr(bil1 , bil2, opr));
+                            }
+                        }
+                        if((isdigit(input[i+1]) || input[i+1]=='(') && (isdigit(input[i-1]) || input[i-1]==')'))
+                            operasi.push(input[i]);
+                        
+                        else
+                            {
+                            operand.push(-1);
+                            operasi.push('*');
+                        }
+                    } 
+                    
+                } 
+                else 
+                    {
+                    while(!operasi.empty() && operan(operasi.top()) >= operan(input[i])){
+                        if(operasi.top() == '%'){
+                            int bil2 = operand.top(); operand.pop();
+                            int bil1  = operand.top(); operand.pop();
+                            operasi.pop();
+                            operand.push(bil1 %bil2);
+                        } else 
+                            {
+                            double bil2 = operand.top(); operand.pop();
+                            double bil1  = operand.top(); operand.pop();
+                            char opr = operasi.top(); operasi.pop();
+                            operand.push(Oprtr(bil1 , bil2, opr));
+                        }
+                    }
+                    operasi.push(input[i]);
+                }
+            }
+        }
+        
+        while(!operasi.empty()){
+            if(operasi.top() == '%'){
+                int bil2 = operand.top(); operand.pop();
+                int bil1  = operand.top(); operand.pop();
+                operasi.pop();
+                operand.push(bil1 %bil2);
+         
+            } 
+            else 
+                {
+                double bil2 = operand.top(); operand.pop();
+                double bil1  = operand.top(); operand.pop();
+                char opr = operasi.top(); operasi.pop();
+                operand.push(Oprtr(bil1 , bil2, opr));
+            }
+        }
+        cout << operand.top() << endl;
+    }
 
 
 int main(){
