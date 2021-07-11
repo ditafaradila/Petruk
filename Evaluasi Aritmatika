@@ -37,6 +37,75 @@ double Oprtr(double satu, double dua, char opr){
     return 0;
 }
 
+void hasil(string input){
+    stack<double> operand;
+    stack<char> operasi;
+
+    for(i=0; i<input.length(); i++){
+        if(isdigit(input[i])){
+            int nilai=0;
+            while(i<input.length() && isdigit(input[i])){
+                nilai = (nilai*10) + (input[i] - '0');
+                i++;
+            }
+            i--;
+            operand.push(nilai);
+        }
+            else if(input[i] == '(')
+                operasi.push(input[i]);
+            else if(input[i] == ')'){
+                while(!operasi.empty() && operasi.top() != '('){
+                    if(operasi.top() == '%'){
+                        int bil2 = operand.top(); operand.pop();
+                        int bil1  = operand.top(); operand.pop();
+                        operasi.pop();
+                        operand.push(bil1 %bil2);
+                        
+                    } 
+                    else
+                         {
+                        double bil2 = operand.top(); operand.pop();
+                        double bil1  = operand.top(); operand.pop();
+                        char opr = operasi.top(); operasi.pop();
+                        operand.push(Oprtr(bil1 , bil2, opr));
+                    }
+                }
+                
+                if(!operasi.empty())
+                    operasi.pop();
+                    
+            } 
+            else 
+                {
+                if(input[i] == '-'){
+                    if(i==0){
+                        if(isdigit(input[i+1])){
+                            i++;
+                            int nilai=0;
+                            while(i<input.length() && isdigit(input[i])){
+                                nilai = (nilai*10) + (input[i] - '0');
+                                i++;
+                            }
+                            i--;
+                            operand.push(nilai*-1);//
+                        } else {
+                            operand.push(-1);
+                            operasi.push('*');
+                        }
+                        
+                    } 
+                    else 
+                        {
+                        while(!operasi.empty() && operan(operasi.top()) >= operan(input[i]) && !Simbol(input[i-1])){
+                            if(operasi.top() == '%'){
+                                int bil2 = operand.top(); operand.pop();
+                                int bil1  = operand.top(); operand.pop();
+                                operasi.pop();
+                                operand.push(bil1 %bil2);
+                            
+                            } 
+
+
 int main(){
     string input; getline(cin, input);
     string baru_input="";
